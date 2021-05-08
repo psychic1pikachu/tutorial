@@ -11,6 +11,7 @@ module.exports = {
     .addField("Owner", message.guild.owner, true)
     .addField("Region", `${message.guild.region}`, true)
     .addField("Members", `Total members: ${message.guild.members.cache.size} | Humans: ${message.guild.members.cache.filter(member => !member.user.bot).size} | Bots:${message.guild.members.cache.filter(member => member.user.bot).size}`, true)
+    .addField("Members", `Total members: ${message.guild.members.cache.size} | Humans: ${message.guild.members.cache.filter(member => !member.user.bot).size} | Bots:${message.guild.members.cache.filter(member => member.user.bot).size}`, true)
     .setThumbnail(message.guild.iconURL({ dynamic: true }))
     message.channel.send(embed)
   }
