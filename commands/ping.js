@@ -8,7 +8,7 @@ module.exports = {
 
 
         const ping = new Discord.MessageEmbed()
-        .setDescription(`🏓\`${client.ws.ping}\`ms lol`);
+        .setDescription(`🏓\`${client.ws.ping}\`ms`);
 
 
         message.channel.send(ping);
