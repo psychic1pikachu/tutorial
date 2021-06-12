@@ -4,13 +4,19 @@ const client = new Discord.Client();
 
 const token = process.env['token']
 
-const { readdirSync } = require('fs');
+const fs = require("fs");
+
+const { readdirSync } = require("fs");
 
 const { join } = require('path');
 
 client.commands = new Discord.Collection();
 
 const prefix = '.';
+
+console.log(`${client.username} is now online`);
+
+console.log(prefix);
 
 const commandFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
 
@@ -19,16 +25,7 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
-
 client.on("error", console.error);
-
-client.on('ready', () => {
-  console.log(`${client.user.username} is now online`);
-  console.log(prefix);
-
-    client.user.setPresence({ activity: { name: 'idk' }, status: "idle" })
-
-});
 
 client.on("message", async message => {
 
